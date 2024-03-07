@@ -1,21 +1,18 @@
 
 import Header from "../layouts/header/Header";
 import Container from '@mui/material/Container';
-import Category from "../layouts/category/Category";
 import Box from "@mui/material/Box";
-import SuggestProduct from "../layouts/SuggestProduct";
 import Banner from "../layouts/Banner";
+import ListCart from "../layouts/cart/ListCart";
 
-export default function Home()
+export default function Cart()
 {
     return(
     <>
       <Box sx={{ bgcolor: '#eeeeee' }}>
       <Container>
      <Header/>
-     <Banner/>
-    <Category/>
-    <SuggestProduct/>
+     <ListCart/>
     </Container>
     </Box>
 

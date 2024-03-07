@@ -1,0 +1,17 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Customize styles as needed */
+  .slick-prev,
+  .slick-next {
+    font-size: 24px;
+    color: black;
+  }
+  
+  .slick-prev:hover,
+  .slick-next:hover {
+    color: #333;
+  }

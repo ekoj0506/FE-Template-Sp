@@ -8,6 +8,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import { useNavigate } from "react-router-dom";
 import Link from '@mui/material/Link';
+import Account from '../../components/Account';
 const TextTool = styled('div')(({ theme }) => ({
     textAlign: 'center',
     color: 'white',
@@ -49,12 +50,7 @@ return (
   <LanguageIcon sx={{ fontSize: 15, paddingTop: '2px', paddingRight:'1px' }}/>Tiếng Việt
   <ExpandMoreIcon sx={{ fontSize: 20, paddingRight:'1px' }}/>
   </TextTool>
-  
- 
-  <TextTool onClick={HandleClickLogin}><Link  href="login" underline="none" sx={{ color:'white'}} >{'Đăng nhập'}</Link></TextTool>
-  <TextTool sx={{px:'5px'}}>|</TextTool>
-  <TextTool sx={{paddingRight:'20px'}}><Link  href="/login" underline="none" sx={{ color:'white'}}>{'Đăng ký'}</Link></TextTool>
-  
+    <Account/>
   </Grid>
 </Grid>
 

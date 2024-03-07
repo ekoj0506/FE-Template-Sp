@@ -6,9 +6,11 @@ import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
+import Account from '../../components/Account';
+import Img from "../public/image/dutu.png"
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -43,15 +45,21 @@ export default function PrimarySearchAppBar() {
    const navigate=useNavigate();
   
   const toHome=()=>{
-    window.location.reload()
+    
   navigate('/');
   }
+  const toCart=()=>
+  {
+    navigate('/cart')
+
+  }
+  console.log('dddddd')
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar sx={{position:'relative'}}>
              <Button onClick={toHome}>
-            <img  width={'140px'} height={'70px'} src={'image/dutu.png'}  alt="Logo"/>
+            <img  width={'140px'} height={'70px'} src={'/image/dutu.png'}  alt="Logo"/>
             </Button>
       
           <Search sx={{marginTop:'-7px'}}>
@@ -66,9 +74,11 @@ export default function PrimarySearchAppBar() {
              </Button>
           </Search>
           <Box sx={{  position: 'absolute', left: '2000px' }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex'  } }}>
-           <ShoppingCartIcon sx={{marginRight: '16px', }}/>
-            
+          <Box  onClick={toCart} sx={{ display: { xs: 'none', md: 'flex'  } }} >
+             <Link sx={{color:'white'}} href='/cart'>
+           <ShoppingCartIcon  sx={{marginRight: '16px', }} />
+           </Link>
+
           </Box>
           
         </Toolbar>

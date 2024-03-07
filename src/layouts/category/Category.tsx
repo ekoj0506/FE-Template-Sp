@@ -1,13 +1,29 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ChildCategory from './ChildCategory';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
+import { responseCategoryApi } from '../../Apis/indexApi';
+
 export default function Category()
 {
-const list=[{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},]
+      const [listCategory, setListCategory]=useState(null);
+      useEffect(()=>{
+      const fetchData= async ()=>{ 
+        try{
+       const reponse= await responseCategoryApi
+       setListCategory(reponse.data)
 
-
+      }
+      catch(error)
+      {
+            console.log('error')
+      }
+    }
+    fetchData()
+  },
+      [])
+    console.log(listCategory)
     const [scrollPosition, setScrollPosition] = useState(0);
     const [oppa, setOppa] =useState(0);
     const [check, setCheck] = useState(false);
@@ -32,13 +48,12 @@ const list=[{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'
 
 
 <Box sx={{ display: 'flex', flexDirection: 'row', marginLeft: `${scrollPosition}px` }}>
-{list.map((cate)=>
-(
-   
-    <ChildCategory/>
- 
-)
+{listCategory && listCategory.length > 0 && (
+  listCategory.map((cate) => (
+    <ChildCategory data={cate} key={cate.id} />
+  ))
 )}
+
 </Box>
 
 
@@ -47,4 +62,4 @@ const list=[{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'},{xe:'xe'
     </>
   );
 
-};
+}

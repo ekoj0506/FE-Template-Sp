@@ -1,0 +1,17 @@
+.slick-prev {
+    color: #fff;
+}
+.slick-next {
+    color: #fff;
+}
+
+.slick-prev {
+    left: 10px;
+
+    z-index: 3;
+}
+
+.slick-next {
+    right: 10px;
+    z-index: 3;
+}
